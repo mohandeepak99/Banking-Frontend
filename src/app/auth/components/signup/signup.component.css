@@ -1,47 +1,43 @@
-/* Full page center */
-.signup-container {
+.auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f4f6fb; /* light background */
-}
-
-/* Card */
-.signup-card {
-  width: 380px;
+  min-height: calc(100vh - 64px); /* Subtract toolbar height */
   padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  background: #fff;
 }
 
-/* Title */
-.signup-title {
-  text-align: center;
-  font-size: 22px;
+.auth-card mat-card-title {
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 15px;
-  color: #0a0a70; /* matches navbar navy */
+  color: #333;
+  text-align: center;
 }
 
-/* Fields */
 .full-width {
   width: 100%;
   margin-bottom: 15px;
 }
 
-/* Button */
-.signup-btn {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 8px;
-  background-color: #0a0a70 !important; /* navbar navy */
-  color: white !important;
+.full-width button {
+  padding: 10px;
 }
 
-.signup-btn:hover {
-  background-color: #0e0e5f !important;
+.switch-link {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.switch-link a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
 }

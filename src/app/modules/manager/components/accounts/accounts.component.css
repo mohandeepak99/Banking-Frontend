@@ -1,0 +1,41 @@
+.accounts-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.accounts-card {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.accounts-card mat-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2980b9;
+}
+
+.accounts-card mat-card-subtitle {
+  color: #777;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.mat-table {
+  width: 100%;
+}
+
+.verified {
+  color: #4caf50;
+}
+
+.pending {
+  color: #ff9800;
+}

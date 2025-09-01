@@ -1,0 +1,22 @@
+.dashboard-container {
+  padding: 20px;
+}
+
+.dashboard-card {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.dashboard-card mat-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.dashboard-card mat-card-subtitle {
+  color: #777;
+}

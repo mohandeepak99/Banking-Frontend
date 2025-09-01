@@ -1,1 +1,36 @@
-<p>manager-nav works!</p>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+    fixedTopGap="56" [opened]="mobileQuery.matches ? 'false' : 'true'" class="sidenav-content-area">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/manager/dashboard" routerLinkActive="active-link">
+        <mat-icon mat-list-icon>dashboard</mat-icon>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/manager/customers" routerLinkActive="active-link">
+        <mat-icon mat-list-icon>group</mat-icon>
+        <span class="nav-label">Customers</span>
+      </a>
+      <a mat-list-item routerLink="/manager/accounts" routerLinkActive="active-link">
+        <mat-icon mat-list-icon>account_balance</mat-icon>
+        <span class="nav-label">Accounts</span>
+      </a>
+      <a mat-list-item (click)="logout()">
+        <mat-icon mat-list-icon>logout</mat-icon>
+        <span class="nav-label">Logout</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="main-toolbar">
+      <button mat-icon-button (click)="snav.toggle()" *ngIf="mobileQuery.matches">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="app-name">Manager Panel</span>
+    </mat-toolbar>
+
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

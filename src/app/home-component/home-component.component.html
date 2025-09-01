@@ -1,1 +1,64 @@
-<p>home-component works!</p>
+<div class="main-container mat-app-background">
+  <div class="content-container">
+    <div class="balance-card-container">
+      <mat-card class="balance-card">
+        <mat-card-header>
+          <mat-card-title>Total Balance</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h1 class="balance-amount">14.590 USD</h1>
+          <p class="balance-detail">Available funds</p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="card-display-card">
+        <mat-card-content class="card-content-wrapper">
+          <div class="card-details">
+            <h3 class="card-title">Your Cards</h3>
+            <p class="card-subtitle">physical card, 1 virtual card</p>
+          </div>
+          <div class="credit-card-image-container">
+            <img src="assets/images/visa_card.png" alt="Visa Card" class="credit-card-image">
+            <div class="card-number">
+              <span class="card-number-segment">****</span>
+              <span class="card-number-segment">****</span>
+              <span class="card-number-segment">****</span>
+              <span class="card-number-segment">3469</span>
+            </div>
+            <p class="card-holder-name">Mohan Deepak</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="actions-container">
+      <mat-card class="action-card">
+        <mat-card-header>
+          <mat-card-title>Services</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list role="list">
+            <mat-list-item role="listitem" class="action-list-item">
+              <mat-icon mat-list-icon>send</mat-icon>
+              <div mat-line>Send Money</div>
+            </mat-list-item>
+            <mat-list-item role="listitem" class="action-list-item">
+              <mat-icon mat-list-icon>account_balance</mat-icon>
+              <div mat-line>Transfer to Bank</div>
+            </mat-list-item>
+            <mat-list-item role="listitem" class="action-list-item">
+              <mat-icon mat-list-icon>qr_code_scanner</mat-icon>
+              <div mat-line>Scan QR Code</div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="transactions-card">
+        <mat-card-header>
+          <mat-card-title>Recent Transactions</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>No recent transactions.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

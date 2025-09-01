@@ -77,4 +77,8 @@ export class StorageService {
       window.localStorage.removeItem(StorageService.USER);
     }
   }
+
+  static isLoggedIn(): boolean {
+    return this.getToken() !== '';
+  }
 }

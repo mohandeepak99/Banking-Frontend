@@ -1,1 +1,43 @@
-<p>transfer works!</p>
+<div class="transfer-container">
+  <mat-card class="transfer-card">
+    <mat-card-header>
+      <mat-card-title>Money Transfer</mat-card-title>
+      <mat-card-subtitle>Transfer funds to another account</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Receiver Account Number</mat-label>
+            <input matInput formControlName="receiverAccountNumber" required>
+            <mat-icon matSuffix>account_balance</mat-icon>
+            <mat-error *ngIf="transferForm.get('receiverAccountNumber')?.hasError('required')">Account number is required</mat-error>
+            <mat-error *ngIf="transferForm.get('receiverAccountNumber')?.hasError('pattern')">Account number must be 20 digits</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Receiver Name</mat-label>
+            <input matInput formControlName="receiverName" required>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="transferForm.get('receiverName')?.hasError('required')">Receiver name is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" formControlName="amount" required>
+            <mat-icon matSuffix>attach_money</mat-icon>
+            <mat-error *ngIf="transferForm.get('amount')?.hasError('required')">Amount is required</mat-error>
+            <mat-error *ngIf="transferForm.get('amount')?.hasError('min')">Amount must be greater than zero</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="transferForm.invalid">
+            <mat-icon>send</mat-icon> Transfer Funds
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

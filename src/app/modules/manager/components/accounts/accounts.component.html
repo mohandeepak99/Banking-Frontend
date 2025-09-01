@@ -1,0 +1,57 @@
+<div class="accounts-container">
+  <mat-card class="accounts-card">
+    <mat-card-header>
+      <mat-card-title>Account Management</mat-card-title>
+      <mat-card-subtitle>View and manage all customer accounts</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+          
+          <ng-container matColumnDef="profileId">
+            <th mat-header-cell *matHeaderCellDef> Profile ID </th>
+            <td mat-cell *matCellDef="let account"> {{ account.profileId }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef> Username </th>
+            <td mat-cell *matCellDef="let account"> {{ account.username }} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let account"> {{ account.email }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="accountNumber">
+            <th mat-header-cell *matHeaderCellDef> Account Number </th>
+            <td mat-cell *matCellDef="let account"> {{ account.accountNumber }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="accountType">
+            <th mat-header-cell *matHeaderCellDef> Account Type </th>
+            <td mat-cell *matCellDef="let account"> {{ account.accountType }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="balance">
+            <th mat-header-cell *matHeaderCellDef> Balance </th>
+            <td mat-cell *matCellDef="let account"> {{ account.balance | currency:'USD' }} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="kyc">
+            <th mat-header-cell *matHeaderCellDef> KYC Status </th>
+            <td mat-cell *matCellDef="let account"> 
+              <mat-icon [ngClass]="{'verified': account.kyc, 'pending': !account.kyc}">
+                {{ account.kyc ? 'check_circle' : 'warning' }}
+              </mat-icon>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

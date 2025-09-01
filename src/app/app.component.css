@@ -1,0 +1,51 @@
+.main-toolbar {
+  background-color: #2c3e50; /* Darker tone for the header */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.main-toolbar .app-name {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main-toolbar .toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.main-toolbar a {
+  color: white;
+  margin: 0 8px;
+  font-weight: 500;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.main-toolbar a:hover {
+  color: #3498db;
+}
+
+.main-toolbar a.active-link {
+  font-weight: bold;
+}
+
+.main-toolbar a.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #3498db;
+}
+
+.content-wrapper {
+  padding-top: 56px; /* Adjust for the fixed header height */
+}

@@ -1,0 +1,51 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav-content-area {
+  width: 250px;
+  background-color: #f5f5f5;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.mat-toolbar.mat-primary {
+  background: linear-gradient(to right, #6c5ce7, #8e44ad);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.mat-nav-list .mat-list-item {
+  color: #333;
+  transition: all 0.2s ease-in-out;
+}
+
+.mat-nav-list .mat-list-item:hover, .mat-nav-list .mat-list-item.active-link {
+  background-color: rgba(108, 92, 231, 0.1);
+  color: #6c5ce7;
+}
+
+.mat-nav-list .mat-list-item.active-link {
+  font-weight: 500;
+  border-left: 5px solid #6c5ce7;
+  padding-left: 11px;
+}
+
+.mat-icon {
+  margin-right: 15px;
+}
+
+.nav-label {
+  font-size: 1rem;
+}
+
+.content-wrapper {
+  padding: 20px;
+}
+
+.app-name {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-left: 15px;
+}

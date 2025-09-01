@@ -1,1 +1,48 @@
-<p>audit-logs works!</p>
+<div class="audit-logs-container">
+  <mat-card class="audit-logs-card">
+    <mat-card-header>
+      <mat-card-title>System Audit Logs</mat-card-title>
+      <mat-card-subtitle>View all system events and activities</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+          
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let log"> {{ log.action }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="entityName">
+            <th mat-header-cell *matHeaderCellDef> Entity </th>
+            <td mat-cell *matCellDef="let log"> {{ log.entityName }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="entityId">
+            <th mat-header-cell *matHeaderCellDef> Entity ID </th>
+            <td mat-cell *matCellDef="let log"> {{ log.entityId }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customerId">
+            <th mat-header-cell *matHeaderCellDef> Customer ID </th>
+            <td mat-cell *matCellDef="let log"> {{ log.customerId }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="timestamp">
+            <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+            <td mat-cell *matCellDef="let log"> {{ log.timestamp | date:'medium' }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="details">
+            <th mat-header-cell *matHeaderCellDef> Details </th>
+            <td mat-cell *matCellDef="let log"> {{ log.details }} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>
