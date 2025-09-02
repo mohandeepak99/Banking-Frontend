@@ -6,7 +6,7 @@
           <mat-card-title>Total Balance</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <h1 class="balance-amount">14.590 USD</h1>
+          <h1 class="balance-amount">{{ totalBalance | number:'1.2-2' }} USD</h1>
           <p class="balance-detail">Available funds</p>
         </mat-card-content>
       </mat-card>
@@ -24,7 +24,7 @@
               <span class="card-number-segment">****</span>
               <span class="card-number-segment">3469</span>
             </div>
-            <p class="card-holder-name">Mohan Deepak</p>
+            <p class="card-holder-name">{{ userName }}</p>
           </div>
         </mat-card-content>
       </mat-card>
@@ -52,13 +52,30 @@
         </mat-card-content>
       </mat-card>
       <mat-card class="transactions-card">
-        <mat-card-header>
-          <mat-card-title>Recent Transactions</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>No recent transactions.</p>
-        </mat-card-content>
-      </mat-card>
++             <mat-card-header>
++               <mat-card-title>Recent Transactions</mat-card-title>
++             </mat-card-header>
++             <mat-card-content>
++               <ng-container *ngIf="recentTransactions?.length; else noTx">
++                 <mat-list>
++                   <mat-list-item *ngFor="let tx of recentTransactions">
++                     <div mat-line>
++                       <strong>To:</strong> {{ tx.receiverAccountNumber }}
++                     </div>
++                     <div mat-line>
++                       <strong>Amount:</strong> {{ tx.amount }}
++                     </div>
++                     <div mat-line>
++                       <strong>Date:</strong> {{ tx.paymentTime | date:'short' }}
++                     </div>
++                   </mat-list-item>
++                 </mat-list>
++               </ng-container>
++               <ng-template #noTx>
++                 <p>No recent transactions.</p>
++               </ng-template>
++             </mat-card-content>
++           </mat-card>
     </div>
   </div>
 </div>

@@ -37,8 +37,9 @@ export class TransferComponent implements OnInit, OnDestroy {
   transferForm: FormGroup;
   private paymentSubscription!: Subscription;
   private userAccountInfo = {
-    accountNumber: 'YOUR_ACCOUNT_NUMBER', // Placeholder, would be fetched from a service
-    name: 'YOUR_NAME' // Placeholder, would be fetched from a service
+    
+    accountNumber: '',
+    name: ''
   };
 
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private customerService: CustomerService) {
@@ -48,11 +49,29 @@ export class TransferComponent implements OnInit, OnDestroy {
       amount: ['', [Validators.required, Validators.min(1)]]
     });
   }
+  
 
   ngOnInit(): void {
-    // You would typically fetch the sender's account info here.
-    // This is hardcoded for now, but in a real app, it would come from an API call.
-  }
+
+    // Fetch sender’s account info and name
+    this.customerService.getAccountsByUser().subscribe({
+      next: (accounts) => {
+        if (accounts && accounts.length > 0) {
+          // pick the first account; adapt if you have multiple
+          this.userAccountInfo.accountNumber = accounts[0].accountNumber;
+        }
+      },
+    });
+    // Fetch the user's profile to get full name
+    this.customerService.getProfile().subscribe({
+          next: (profile) => {
+            const firstName = profile?.firstName ?? '';
+            const lastName = profile?.lastName ?? '';
+            this.userAccountInfo.name = `${firstName} ${lastName}`.trim();
+          },
+    });
+   }
+   
 
   onSubmit(): void {
     if (this.transferForm.valid) {
